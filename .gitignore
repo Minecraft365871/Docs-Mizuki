@@ -1,8 +1,32 @@
-**/node_modules
+```
+# VuePress cache and temp files
+docs/.vuepress/.cache/
+docs/.vuepress/.temp/
 
-docs/.vuepress/.cache
-docs/.vuepress/.temp
-docs/.vuepress/dist
+# Dependencies
+node_modules/
 
-.DS_Store
+# Environment
+.env
+.env.local
+.env.*
+
+# Logs
 *.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Build outputs
+dist/
+build/
+target/
+```

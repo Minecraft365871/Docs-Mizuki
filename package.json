@@ -16,10 +16,11 @@
     "node": "^20.6.0 || >=22.0.0"
   },
   "scripts": {
+    "build": "pnpm docs:build",
     "docs:dev": "vuepress dev docs",
     "docs:dev-clean": "vuepress dev docs --clean-cache --clean-temp",
-    "docs:build": "vuepress build docs --clean-cache --clean-temp",
-    "docs:preview": "http-server docs/.vuepress/dist",
+    "docs:build": "vuepress build docs --clean-cache --clean-temp --dest dist",
+    "docs:preview": "http-server dist",
     "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {

@@ -1,0 +1,10 @@
+<template><div><p>这是在Mizuki7.2以上加入的新特性,支持你为文章配置固定链接,优化SEO!</p>
+<h2 id="使用方法" tabindex="-1"><a class="header-anchor" href="#使用方法"><span>使用方法</span></a></h2>
+<p>在文章的 Front Matter 中添加以下配置：</p>
+<div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-markdown"><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">---</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">permalink</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">encrypted-example</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">---</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>他会相对于<code v-pre>posts</code>构建路径生成一个固定链接, 例如: <code v-pre>https://mizuki.site/posts/encrypted-example</code></p>
+</div></template>
+
+
