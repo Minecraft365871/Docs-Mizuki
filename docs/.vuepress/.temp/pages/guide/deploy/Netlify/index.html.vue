@@ -1,0 +1,57 @@
+<template><div><h2 id="如何部署到-netlify" tabindex="-1"><a class="header-anchor" href="#如何部署到-netlify"><span>如何部署到 Netlify</span></a></h2>
+<p>Netlify 也是一个流行的静态网站托管平台。您可以直接从 GitHub 部署您的 Mizuki 博客。Netlify 会自动构建和部署您的项目，并提供持续部署功能。</p>
+<h3 id="网站用户操作界面部署方式" tabindex="-1"><a class="header-anchor" href="#网站用户操作界面部署方式"><span>网站用户操作界面部署方式</span></a></h3>
+<p>如果你的项目存储在 GitHub、GitLab、BitBucket 或 Azure DevOps 中，你可以使用 Netlify 的网站用户操作界面来部署你的 Astro 网站.</p>
+<div class="vp-steps"><ol>
+<li>
+<p>在 <a href="https://app.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify dashboard</a> 页面上，点击 Add a new site</p>
+</li>
+<li>
+<p>选择 Import an existing project</p>
+<p>当你从你的 Git 提供商中导入 Astro 仓库时，Netlify 应该会自动检测并预填充正确的配置设置。</p>
+</li>
+<li>
+<p>确保已输入以下设置，然后按下 Deploy 按钮：</p>
+<ul>
+<li><strong>Build Command</strong>: <code v-pre>astro build</code> or <code v-pre>npm run build</code></li>
+<li><strong>Publish directory</strong>: <code v-pre>dist</code></li>
+</ul>
+</li>
+<li>
+<p>部署后，你将被重定向到站点概览页面。在那里，你可以编辑你站点的详细信息。</p>
+</li>
+</ol>
+</div><p>根据你的部署配置，未来对源代码库的任何修改都将触发预览和生产部署。</p>
+<p><strong>netlify.toml 文件</strong></p>
+<p>你可以选择在项目仓库的顶层创建一个新的 <code v-pre>netlify.toml</code> 文件，用来配置你的构建命令和发布目录，以及其他项目设置，包括环境变量和重定向。Netlify 将读取此文件并自动配置你的部署。</p>
+<p>为了配置默认设置，创建一个 netlify.toml 文件，并填入以下内容：</p>
+<div class="language-toml line-numbers-mode" data-highlighter="shiki" data-ext="toml" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-toml"><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">build</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  command</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">npm run build</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  publish</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">dist</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>更多信息可以在 Netlify 的博客文章 <a href="https://www.netlify.com/blog/how-to-deploy-astro/#deploy-an-existing-git-repository-to-netlify" target="_blank" rel="noopener noreferrer">部署现有的 Astro Git 仓库</a> 中找到。</p>
+<h3 id="cli-部署方式" tabindex="-1"><a class="header-anchor" href="#cli-部署方式"><span>CLI 部署方式</span></a></h3>
+<p>你也可以在 Netlify 上创建一个新的站点，并通过安装和使用 Netlify CLI 来关联你的 Git 仓库。</p>
+<div class="vp-steps"><ol>
+<li>
+<p>全局安装 Netlify CLI 工具</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code class="language-bash"><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">npm</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> --global</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> netlify-cli</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
+<li>
+<p>运行 <code v-pre>netlify login</code> 并按照指示进行登录并授权 Netlify。</p>
+</li>
+<li>
+<p>运行 <code v-pre>netlify init</code> 并按照指示进行操作。</p>
+</li>
+<li>
+<p>确认你的构建命令 (<code v-pre>astro build</code>)</p>
+<p>CLI 将自动检测构建设置（<code v-pre>astro build</code>）和部署目录（<code v-pre>dist</code>），并将提供一个自动生成且有这些对应设置的 <code v-pre>netlify.toml</code> 文件。</p>
+</li>
+<li>
+<p>推送到 Git 来触发构建和部署</p>
+<p>CLI 将向仓库添加一个部署密钥，这意味着每次你使用 git push 时，你的网站都会在 Netlify 上自动重新构建。</p>
+</li>
+</ol>
+</div><LinkCard title="更多详情请参阅 Netlify 的文章" href="https://www.netlify.com/blog/how-to-deploy-astro/#link-your-astro-project-and-deploy-using-the-netlify-cli">
+</LinkCard></div></template>
+
+
