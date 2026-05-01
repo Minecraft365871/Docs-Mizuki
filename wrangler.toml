@@ -1,0 +1,14 @@
+# Cloudflare Pages 配置
+# 文档: https://developers.cloudflare.com/pages/platform/functions/wrangler/
+
+[build]
+# 构建命令
+command = "pnpm docs:build"
+
+# 构建输出目录 (必须与 vuepress build --dest 指定的目录一致)
+# 这里指定为根目录的 dist 文件夹
+output_directory = "dist"
+
+# 环境变量 (可选，如有需要可取消注释并添加)
+# [build.environment]
+# NODE_VERSION = "22"
